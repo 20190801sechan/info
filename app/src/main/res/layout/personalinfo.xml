@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonalInfoActivity"
+    android:padding="16dp">
+    <!-- personalinfo.xml  -->
+    <!-- 홈 아이콘 -->
+    <ImageView
+        android:id="@+id/homeIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_home"
+        android:contentDescription="홈"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:onClick="onHomeIconClick"/>
+
+    <!-- 개인 정보 타이틀 -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인 정보"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/homeIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- 나이 섹션 -->
+    <LinearLayout
+        android:id="@+id/ageSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/ageLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나이"
+            android:textSize="18sp"
+            android:layout_marginEnd="16dp" />
+
+        <EditText
+            android:id="@+id/ageInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:text="18"
+            android:textAlignment="center"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- 성별 선택 -->
+    <RadioGroup
+        android:id="@+id/genderSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/ageSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남자" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여자"
+            android:layout_marginStart="16dp" />
+    </RadioGroup>
+
+    <!-- 임신부 섹션 -->
+    <LinearLayout
+        android:id="@+id/pregnancySection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/genderSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/pregnantLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="임신부"
+            android:textSize="18sp"
+            android:layout_marginEnd="16dp" />
+
+        <Switch
+            android:id="@+id/pregnancySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- 수유부 섹션 -->
+    <LinearLayout
+        android:id="@+id/nursingSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/pregnancySection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/nursingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수유부"
+            android:textSize="18sp"
+            android:layout_marginEnd="16dp" />
+
+        <Switch
+            android:id="@+id/nursingSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+    </LinearLayout>
+
+    <!-- 알레르기 정보 섹션 -->
+    <LinearLayout
+        android:id="@+id/allergyInfoSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/nursingSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/allergyInfoLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알레르기정보"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- 초기화 버튼 -->
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="초기화"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
